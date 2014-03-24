@@ -122,7 +122,7 @@
     var rv = function() {
       if (disable_constructor)
         return;
-      var proper_this = context === this ? cheapNew(arguments.callee) : this;
+      var proper_this = this instanceof arguments.callee ? this : cheapNew(arguments.callee);
       if (proper_this.__init__)
         proper_this.__init__.apply(proper_this, arguments);
       proper_this.$class = rv;
