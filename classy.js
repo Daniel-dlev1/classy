@@ -4,14 +4,14 @@
  * :copyright: (c) 2011 by Armin Ronacher. 
  * :license: BSD.
  */
+!function (context) {
 !function (definition) {
   if (typeof module != 'undefined' && module.exports) module.exports = definition()
   else if (typeof define == 'function' && typeof define.amd == 'object') define(definition)
-  else this.Class = definition()
+  else context.Class = definition()
 }(function (undefined) { 'use strict';
   var
     CLASSY_VERSION = '1.4',
-    context = this,
     old = context.Class,
     disable_constructor = false;
 
@@ -159,3 +159,4 @@
   /* export the class */
   return Class;
 });
+}(this);
