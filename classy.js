@@ -5,11 +5,12 @@
  * :license: BSD.
  */
 !function (context) {
+'use strict';
 !function (definition) {
   if (typeof module != 'undefined' && module.exports) module.exports = definition()
   else if (typeof define == 'function' && typeof define.amd == 'object') define(definition)
   else context.Class = definition()
-}(function (undefined) { 'use strict';
+}(function (undefined) { 
   var
     CLASSY_VERSION = '1.4',
     old = context.Class,
