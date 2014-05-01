@@ -8,7 +8,7 @@
   if (typeof module != 'undefined' && module.exports) module.exports = definition()
   else if (typeof define == 'function' && typeof define.amd == 'object') define(definition)
   else this.Class = definition()
-}(function (undefined) {
+}(function (undefined) { 'use strict';
   var
     CLASSY_VERSION = '1.4',
     context = this,
@@ -122,7 +122,7 @@
     var rv = function() {
       if (disable_constructor)
         return;
-      var proper_this = this instanceof arguments.callee ? this : cheapNew(arguments.callee);
+      var proper_this = this instanceof rv ? this : cheapNew(rv);
       if (proper_this.__init__)
         proper_this.__init__.apply(proper_this, arguments);
       proper_this.$class = rv;
